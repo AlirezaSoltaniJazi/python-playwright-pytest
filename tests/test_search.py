@@ -7,7 +7,7 @@ from pages.search import DuckDuckGoSearchPage
 
 @mark.search
 def test_duck_duck_go_search(
-        search_page: DuckDuckGoSearchPage, result_page: DuckDuckGoResultPage
+    search_page: DuckDuckGoSearchPage, result_page: DuckDuckGoResultPage
 ):
     # Arrange Section
     url = 'https://www.duckduckgo.com'
