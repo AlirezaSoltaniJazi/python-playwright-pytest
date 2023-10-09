@@ -1,1 +1,3 @@
-pytest_plugins: list[str] = []
+pytest_plugins: list[str] = [
+    'conftests.browser_instance'
+]
