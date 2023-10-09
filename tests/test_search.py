@@ -1,12 +1,14 @@
 from assertpy import assert_that
+from pytest import mark
 
 from pages.result import DuckDuckGoResultPage
 from pages.search import DuckDuckGoSearchPage
-from pytest import mark
 
 
 @mark.search
-def test_duck_duck_go_search(search_page: DuckDuckGoSearchPage, result_page: DuckDuckGoResultPage):
+def test_duck_duck_go_search(
+        search_page: DuckDuckGoSearchPage, result_page: DuckDuckGoResultPage
+):
     # Arrange Section
     url = 'https://www.duckduckgo.com'
     phrase = 'Alireza Soltani Jazi'
