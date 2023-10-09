@@ -1,4 +1,4 @@
-# BazaarPay Web Automation With Playwright
+# Playwright
 
 **Playwright** enables reliable end-to-end testing for modern web apps.
 
