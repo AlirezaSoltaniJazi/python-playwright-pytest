@@ -6,10 +6,10 @@ from pages.search import DuckDuckGoSearchPage
 
 
 @fixture
-def result_page(page: Page):
+def result_page(page: Page) -> DuckDuckGoResultPage:
     return DuckDuckGoResultPage(page)
 
 
 @fixture
-def search_page(page: Page):
+def search_page(page: Page) -> DuckDuckGoSearchPage:
     return DuckDuckGoSearchPage(page)

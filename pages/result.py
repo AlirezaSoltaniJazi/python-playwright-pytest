@@ -18,12 +18,12 @@ class DuckDuckGoResultPage:
         LOGGER.info('Result Titles', extra={'Titles': titles})
         return titles
 
-    def get_search_input_text(self):
+    def get_search_input_text(self) -> str:
         search_input_text = self._page.input_value(self._SEARCH_INPUT)
         LOGGER.info('Search Input Data', extra={'Text': search_input_text})
         return search_input_text
 
-    def get_page_title(self):
+    def get_page_title(self) -> str:
         page_title = self._page.title()
         LOGGER.info('Page Title', extra={'Title': page_title})
         return page_title
