@@ -1,4 +1,4 @@
-# Playwright
+# Playwright with POM Pattern
 
 **Playwright** enables reliable end-to-end testing for modern web apps.
 
