@@ -1,0 +1,50 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+    -   id: check-yaml
+        args: [--allow-multiple-documents]
+    -   id: check-added-large-files
+    -   id: check-ast
+-   repo: https://github.com/Lucas-C/pre-commit-hooks-safety
+    rev: v1.3.2
+    hooks:
+    -   id: python-safety-dependencies-check
+        name: Check dependencies for vulnerability
+        files: requirements*
+        args:
+            - --disable-telemetry
+- repo: https://github.com/PyCQA/bandit
+  rev: 1.7.5
+  hooks:
+    - id: bandit
+      args:
+        - "-lll"
+        - "-iii"
+- repo: local
+  hooks:
+    - id: pylint
+      name: Lint code with pylint
+      entry: pylint
+      language: system
+      types: [python]
+      require_serial: true
+      args:
+        - "-rn" # Only display messages
+        - "--rcfile=.pylintrc"
+# Automatically format your Python code to conform to the PEP 8 style guide
+- repo: https://github.com/psf/black
+  rev:  23.9.1
+  hooks:
+    - id: black
+      language_version: python3.8
+      args: ["-S"]
+# If you’re using type annotations in your Python code, mypy can be a helpful tool to catch potential bugs
+- repo: https://github.com/pre-commit/mirrors-mypy
+  rev: v0.910
+  hooks:
+    - id: mypy

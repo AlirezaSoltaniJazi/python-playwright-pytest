@@ -1,0 +1,5 @@
+{
+  "browser": "chrome",
+  "active_implicit_wait": false,
+  "implicit_wait": 10
+}
