@@ -1,4 +1,4 @@
-# Playwright with POM Pattern
+# Playwright with POM Pattern (Python and pytest)
 
 **Playwright** enables reliable end-to-end testing for modern web apps.
 
