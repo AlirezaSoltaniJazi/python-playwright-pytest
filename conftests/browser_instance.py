@@ -26,21 +26,9 @@ def browser(config):
         "firefox": playwright.start().firefox,
         "webkit": playwright.start().webkit
     }
-    browser_args = {
-        "headless": False
-    }
-    if browser_config == 'webkit' and headless_mode_config:
-        browser_instance = browsers['webkit'].launch(**browser_args)
-    elif browser_config == 'webkit':
-        browser_instance = browsers['webkit'].launch()
-    elif browser_config == 'firefox' and headless_mode_config:
-        browser_instance = browsers['firefox'].launch(**browser_args)
-    elif browser_config == 'firefox':
-        browser_instance = browsers['firefox'].launch()
-    elif browser_config == 'chrome' and headless_mode_config:
-        browser_instance = browsers['chrome'].launch(**browser_args)
-    else:
-        browser_instance = browsers['chrome'].launch()
+    browser_args = {"headless": False} if headless_mode_config else {}
+    browser_instance = browsers.get(browser_config, browsers['chrome'].launch(**browser_args))
+
     yield browser_instance
     browser_instance.close()
 
