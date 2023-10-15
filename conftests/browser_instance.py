@@ -25,9 +25,11 @@ def browser(config):
     browsers = {
         "chrome": playwright.chromium,
         "firefox": playwright.firefox,
-        "webkit": playwright.webkit
+        "webkit": playwright.webkit,
     }
-    browser_instance = browsers.get(browser_config, browsers['chrome']).launch(**browser_args)
+    browser_instance = browsers.get(browser_config, browsers['chrome']).launch(
+        **browser_args
+    )
     yield browser_instance
     browser_instance.close()
 
