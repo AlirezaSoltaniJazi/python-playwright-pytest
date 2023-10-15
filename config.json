@@ -1,4 +1,4 @@
 {
   "browser": "chrome",
-  "active_headless_mode": false
+  "active_headed_mode": true
 }

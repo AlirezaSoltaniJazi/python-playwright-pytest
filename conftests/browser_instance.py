@@ -18,17 +18,16 @@ def search_page(page: Page) -> DuckDuckGoSearchPage:
 # Create Customize browser instance
 @fixture(scope='session')
 def browser(config):
-    browser_config = config['config']
-    headless_mode_config = config['active_headless_mode']
-    playwright = sync_playwright()
+    browser_config = config['browser']
+    headed_mode_config = config['active_headed_mode']
+    playwright = sync_playwright().start()
+    browser_args = {"headless": False} if headed_mode_config else {}
     browsers = {
-        "chrome": playwright.start().chromium,
-        "firefox": playwright.start().firefox,
-        "webkit": playwright.start().webkit
+        "chrome": playwright.chromium,
+        "firefox": playwright.firefox,
+        "webkit": playwright.webkit
     }
-    browser_args = {"headless": False} if headless_mode_config else {}
-    browser_instance = browsers.get(browser_config, browsers['chrome'].launch(**browser_args))
-
+    browser_instance = browsers.get(browser_config, browsers['chrome']).launch(**browser_args)
     yield browser_instance
     browser_instance.close()
 
