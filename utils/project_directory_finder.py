@@ -6,8 +6,10 @@ from utils.logger_formatter import LOGGER
 
 def get_project_directory() -> str:
     """
-    This function trys to find the project root
-    :return: project directory
+    This function tries to find the project root directory by navigating up one level from the current file's directory.
+    It logs the test directory and the project directory.
+
+    :return: The absolute path of the project directory as a string.
     """
     test_dir = path.dirname(path.abspath(__file__))
     LOGGER.info('test_dir: %s', test_dir)
